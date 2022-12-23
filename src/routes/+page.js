@@ -15,7 +15,6 @@ export async function load({ fetch }) {
 	// todos los servicios que cada parada tiene
 	// servicios incluye el id de la parada y más info
 	let servicios = jsonHorarios.map((h) => h.servicios);
-	// console.log(servicios);
 
 	let paradasInfo = servicios.map((s) => {
 		let exctractServiciosIda = [s[0], s[2]];
