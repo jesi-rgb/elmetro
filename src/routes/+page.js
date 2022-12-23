@@ -2,8 +2,8 @@ export async function load({ fetch }) {
 	let promise = await fetch('http://api.ctan.es/v1/Consorcios/3/lineas/926/paradas');
 	let data = await promise.json();
 
-	let idParadas = data.paradas.map((p) => p.idParada);
-	let paradas = data.paradas;
+	let paradas = data.paradas.filter((p) => p.sentido == '1');
+	let idParadas = paradas.map((p) => p.idParada);
 
 	let urlHorarios = idParadas.map((p) =>
 		fetch('http://api.ctan.es/v1/Consorcios/3/paradas/' + p + '/servicios?horaIni=')
@@ -15,6 +15,7 @@ export async function load({ fetch }) {
 	// todos los servicios que cada parada tiene
 	// servicios incluye el id de la parada y más info
 	let servicios = jsonHorarios.map((h) => h.servicios);
+	// console.log(servicios);
 
 	let paradasInfo = servicios.map((s) => {
 		let exctractServiciosIda = [s[0], s[2]];
@@ -30,6 +31,7 @@ export async function load({ fetch }) {
 				idParada: idParada
 			};
 		});
+
 		let serviciosVuelta = extractServiciosVuelta.map((s) => {
 			let servicio = s.servicio;
 			let sentido = s.sentido;
@@ -40,6 +42,7 @@ export async function load({ fetch }) {
 				idParada: idParada
 			};
 		});
+
 		let idParada = serviciosIda[0].idParada;
 		let parada = paradas.find((p) => p.idParada == idParada);
 
@@ -49,5 +52,7 @@ export async function load({ fetch }) {
 			serviciosVuelta: serviciosVuelta
 		};
 	});
+
+	paradasInfo.sort((a, b) => a.parada.orden - b.parada.orden);
 	return { paradasInfo };
 }
