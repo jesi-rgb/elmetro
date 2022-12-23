@@ -2,25 +2,52 @@ export async function load({ fetch }) {
 	let promise = await fetch('http://api.ctan.es/v1/Consorcios/3/lineas/926/paradas');
 	let data = await promise.json();
 
-	let paradas = data.paradas.map((p) => p.idParada);
+	let idParadas = data.paradas.map((p) => p.idParada);
+	let paradas = data.paradas;
 
-	let urlHorarios = paradas.map((p) =>
+	let urlHorarios = idParadas.map((p) =>
 		fetch('http://api.ctan.es/v1/Consorcios/3/paradas/' + p + '/servicios?horaIni=')
 	);
 
 	let promiseHorarios = await Promise.all(urlHorarios);
+	let jsonHorarios = await Promise.all(promiseHorarios.map((p) => p.json()));
 
-	// let top2horas = urlHorarios.map((url) => {
-	// 	// figure out how to fetch lots of urls on a loop or map
-	// 	let horaInfo = fetch(url);
+	// todos los servicios que cada parada tiene
+	// servicios incluye el id de la parada y más info
+	let servicios = jsonHorarios.map((h) => h.servicios);
 
-	// 	let horas = horaInfo.json();
+	let paradasInfo = servicios.map((s) => {
+		let exctractServiciosIda = [s[0], s[2]];
+		let extractServiciosVuelta = [s[1], s[3]];
 
-	// 	return {
-	// 		siguiente: horas[0].servicio,
-	// 		despues: horas[1].servicio
-	// 	};
-	// });
+		let serviciosIda = exctractServiciosIda.map((s) => {
+			let servicio = s.servicio;
+			let sentido = s.sentido;
+			let idParada = s.idParada;
+			return {
+				servicio: servicio,
+				sentido: sentido,
+				idParada: idParada
+			};
+		});
+		let serviciosVuelta = extractServiciosVuelta.map((s) => {
+			let servicio = s.servicio;
+			let sentido = s.sentido;
+			let idParada = s.idParada;
+			return {
+				servicio: servicio,
+				sentido: sentido,
+				idParada: idParada
+			};
+		});
+		let idParada = serviciosIda[0].idParada;
+		let parada = paradas.find((p) => p.idParada == idParada);
 
-	return data;
+		return {
+			parada: parada,
+			serviciosIda: serviciosIda,
+			serviciosVuelta: serviciosVuelta
+		};
+	});
+	return { paradasInfo };
 }
