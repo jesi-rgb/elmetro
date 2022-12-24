@@ -5,7 +5,7 @@
 	export let paradaInfo;
 </script>
 
-<div class="bg-teal-50 p-4 rounded-xl m-4 ml-0 pl-1">
+<div class="bg-teal-100 bg-opacity-40 p-4 rounded-xl m-4 ml-0 pl-1">
 	<div class="ml-6">
 		<span
 			class="flex absolute -left-[17px] justify-center items-center w-[32px] h-[32px] bg-teal-200 rounded-full ring-2 ring-teal-600"

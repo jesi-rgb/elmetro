@@ -48,8 +48,6 @@ export async function load({ fetch }) {
 		let idParada = s[0].idParada;
 		let parada = paradas.find((p) => p.idParada == idParada);
 		let nucleo = nucleoData.nucleos.find((n) => n.idMunicipio == parada.idNucleo);
-		// console.log(parada.idNucleo);
-		// console.log(nucleo);
 
 		return {
 			parada: parada,

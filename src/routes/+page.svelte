@@ -6,7 +6,6 @@
 
 	export let data;
 	let paradasInfo = data.paradasInfo;
-	console.log(paradasInfo.map((p) => p.nucleo));
 </script>
 
 <div>
