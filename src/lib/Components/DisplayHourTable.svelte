@@ -1,6 +1,8 @@
 <script>
-	import { ArrowRight, ArrowUp, ArrowDown } from 'phosphor-svelte';
+	import { ArrowUp, ArrowDown } from 'phosphor-svelte';
 	import { dateFromHour } from '../utils';
+
+	import MinutesLeft from './MinutesLeft.svelte';
 	export let paradaInfo;
 
 	let minsIda = new Date(
@@ -20,27 +22,22 @@
 <div>
 	<div class="flex flex-row space-x-10 items-start">
 		<div class="flex flex-col">
-			<span class="flex items-center font-medium">Albolote <span><ArrowUp /></span> </span>
-			<div class="flex">
-				<span class="font-semibold">{minsIda}</span>
-				<span class="font-regular ml-3">min</span>
-			</div>
-			<div class="flex">
-				<span class="font-semibold">{minsIdaNext}</span>
-				<span class="font-regular ml-3">min</span>
-			</div>
+			<span class="flex items-center font-medium text-teal-900"
+				>Albolote <span class="text-teal-400"><ArrowUp /></span>
+			</span>
+			<MinutesLeft minutesLeft={minsIda} actualHour={paradaInfo.serviciosIda[0].servicio} />
+			<MinutesLeft minutesLeft={minsIdaNext} actualHour={paradaInfo.serviciosIda[1].servicio} />
 		</div>
 
 		<div class="flex flex-col">
-			<span class="flex items-center font-medium">Armilla <span><ArrowDown /></span> </span>
-			<div class="flex">
-				<span class="font-semibold">{minsVuelta}</span>
-				<span class="font-regular ml-3">min</span>
-			</div>
-			<div class="flex">
-				<span class="font-semibold">{minsVueltaNext}</span>
-				<span class="font-regular ml-3">min</span>
-			</div>
+			<span class="flex items-center font-medium text-teal-900"
+				>Armilla <span class="text-teal-400"><ArrowDown /></span>
+			</span>
+			<MinutesLeft minutesLeft={minsVuelta} actualHour={paradaInfo.serviciosVuelta[0].servicio} />
+			<MinutesLeft
+				minutesLeft={minsVueltaNext}
+				actualHour={paradaInfo.serviciosVuelta[1].servicio}
+			/>
 		</div>
 	</div>
 </div>
