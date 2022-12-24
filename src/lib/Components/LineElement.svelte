@@ -3,21 +3,26 @@
 
 	import DisplayHourTable from './DisplayHourTable.svelte';
 	export let paradaInfo;
+	export let color;
+
+	color == undefined ? (color = 'teal') : color;
 </script>
 
-<div class="bg-teal-100 bg-opacity-40 p-4 rounded-xl m-4 ml-0 pl-1">
+<div class="bg-{color}-100 bg-opacity-40 p-4 rounded-xl m-4 ml-6 pl-1 ring-1 ring-{color}-600">
 	<div class="ml-6">
 		<span
-			class="flex absolute -left-[17px] justify-center items-center w-[32px] h-[32px] bg-teal-200 rounded-full ring-2 ring-teal-600"
+			class="flex absolute -left-[17px] justify-center items-center w-[32px] h-[32px] bg-{color}-200 rounded-full ring-2 ring-{color}-700"
 		>
-			<span class="font-bold text-teal-900 text-xl">{paradaInfo.parada.orden}</span>
+			<span class="font-bold text-{color}-900 text-xl">{paradaInfo.parada.orden}</span>
 		</span>
-		<div class="font-semibold text-teal-900 text-2xl">
-			{paradaInfo.parada.nombre}
+		<div class="space-y-2">
+			<div class="font-semibold text-{color}-900 text-2xl -mb-3">
+				{paradaInfo.parada.nombre}
+			</div>
+			<div class="block text-sm font-normal text-{color}-500">
+				Zona {paradaInfo.nucleo.idZona} · {paradaInfo.nucleo.nombre}
+			</div>
+			<DisplayHourTable {paradaInfo} />
 		</div>
-		<div class="block mb-2 text-sm font-normal leading-none text-teal-500">
-			Zona {paradaInfo.nucleo.idZona} · {paradaInfo.nucleo.nombre}
-		</div>
-		<DisplayHourTable {paradaInfo} />
 	</div>
 </div>
