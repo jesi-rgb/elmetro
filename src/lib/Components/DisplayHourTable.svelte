@@ -23,7 +23,7 @@
 	<div class="flex flex-row gap-8 items-start">
 		<div class="flex flex-col w-1/2 px-4 py-2 bg-violet-200 rounded-xl ring-1 ring-violet-600">
 			<span class="flex items-center font-medium text-violet-900"
-				>Albolote <span class="text-violet-400"><ArrowUp /></span>
+				>Albolote <span class="text-violet-600"><ArrowUp /></span>
 			</span>
 			<MinutesLeft
 				minutesLeft={minsIda}
@@ -39,7 +39,7 @@
 
 		<div class="flex flex-col w-1/2 px-4 py-2 bg-orange-200 rounded-xl ring-1 ring-orange-600">
 			<span class="flex items-center font-medium text-orange-900"
-				>Armilla <span class="text-orange-400"><ArrowDown /></span>
+				>Armilla <span class="text-orange-600"><ArrowDown /></span>
 			</span>
 			<MinutesLeft
 				minutesLeft={minsVuelta}
