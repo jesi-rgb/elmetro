@@ -2,6 +2,9 @@ export async function load({ fetch }) {
 	let promise = await fetch('http://api.ctan.es/v1/Consorcios/3/lineas/926/paradas');
 	let data = await promise.json();
 
+	let nucleoPromise = await fetch('http://api.ctan.es/v1/Consorcios/3/nucleos');
+	let nucleoData = await nucleoPromise.json();
+
 	let paradas = data.paradas.filter((p) => p.sentido == '1');
 	let idParadas = paradas.map((p) => p.idParada);
 
@@ -42,11 +45,15 @@ export async function load({ fetch }) {
 			};
 		});
 
-		let idParada = serviciosIda[0].idParada;
+		let idParada = s[0].idParada;
 		let parada = paradas.find((p) => p.idParada == idParada);
+		let nucleo = nucleoData.nucleos.find((n) => n.idMunicipio == parada.idNucleo);
+		// console.log(parada.idNucleo);
+		// console.log(nucleo);
 
 		return {
 			parada: parada,
+			nucleo: nucleo,
 			serviciosIda: serviciosIda,
 			serviciosVuelta: serviciosVuelta
 		};

@@ -23,11 +23,11 @@
 			<span class="flex items-center font-medium">Albolote <span><ArrowUp /></span> </span>
 			<div class="flex">
 				<span class="font-semibold">{minsIda}</span>
-				<span class="font-regular ml-3">minutos</span>
+				<span class="font-regular ml-3">min</span>
 			</div>
 			<div class="flex">
 				<span class="font-semibold">{minsIdaNext}</span>
-				<span class="font-regular ml-3">minutos</span>
+				<span class="font-regular ml-3">min</span>
 			</div>
 		</div>
 
@@ -35,11 +35,11 @@
 			<span class="flex items-center font-medium">Armilla <span><ArrowDown /></span> </span>
 			<div class="flex">
 				<span class="font-semibold">{minsVuelta}</span>
-				<span class="font-regular ml-3">minutos</span>
+				<span class="font-regular ml-3">min</span>
 			</div>
 			<div class="flex">
 				<span class="font-semibold">{minsVueltaNext}</span>
-				<span class="font-regular ml-3">minutos</span>
+				<span class="font-regular ml-3">min</span>
 			</div>
 		</div>
 	</div>
