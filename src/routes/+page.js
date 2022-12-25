@@ -1,19 +1,18 @@
-export async function load({ fetch }) {
-	let promise = await fetch('http://api.ctan.es/v1/Consorcios/3/lineas/926/paradas');
-	let data = await promise.json();
+import { paradas } from '../lib/data/paradas';
+import { nucleos } from '../lib/data/nucleos';
+import { jsonHorarios } from '../lib/data/jsonHorarios';
 
-	let nucleoPromise = await fetch('http://api.ctan.es/v1/Consorcios/3/nucleos');
-	let nucleoData = await nucleoPromise.json();
-
-	let paradas = data.paradas.filter((p) => p.sentido == '1');
-	let idParadas = paradas.map((p) => p.idParada);
+async function fetchData(fetch) {
+	let paradasUnicas = paradas.paradas.filter((p) => p.sentido == '1');
+	let idParadas = paradasUnicas.map((p) => p.idParada);
 
 	let urlHorarios = idParadas.map((p) =>
 		fetch('http://api.ctan.es/v1/Consorcios/3/paradas/' + p + '/servicios?horaIni=')
 	);
 
-	let promiseHorarios = await Promise.all(urlHorarios);
-	let jsonHorarios = await Promise.all(promiseHorarios.map((p) => p.json()));
+	// let promiseHorarios = await Promise.all(urlHorarios);
+	// let jsonHorarios = await Promise.all(promiseHorarios.map((p) => p.json()));
+	// console.log(jsonHorarios);
 
 	// todos los servicios que cada parada tiene
 	// servicios incluye el id de la parada y más info
@@ -46,8 +45,8 @@ export async function load({ fetch }) {
 		});
 
 		let idParada = s[0].idParada;
-		let parada = paradas.find((p) => p.idParada == idParada);
-		let nucleo = nucleoData.nucleos.find((n) => n.idMunicipio == parada.idNucleo);
+		let parada = paradasUnicas.find((p) => p.idParada == idParada);
+		let nucleo = nucleos.nucleos.find((n) => n.idMunicipio == parada.idNucleo);
 
 		return {
 			parada: parada,
@@ -58,5 +57,13 @@ export async function load({ fetch }) {
 	});
 
 	paradasInfo.sort((a, b) => a.parada.orden - b.parada.orden);
+	return paradasInfo;
+}
+
+export async function load({ fetch }) {
+	let paradasInfo;
+
+	paradasInfo = fetchData(fetch);
+
 	return { paradasInfo };
 }
