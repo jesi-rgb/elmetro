@@ -6,9 +6,9 @@ async function fetchData(fetch) {
 	let paradasUnicas = paradas.paradas.filter((p) => p.sentido == '1');
 	let idParadas = paradasUnicas.map((p) => p.idParada);
 
-	let urlHorarios = idParadas.map((p) =>
-		fetch('http://api.ctan.es/v1/Consorcios/3/paradas/' + p + '/servicios?horaIni=')
-	);
+	// let urlHorarios = idParadas.map((p) =>
+	// 	fetch('http://api.ctan.es/v1/Consorcios/3/paradas/' + p + '/servicios?horaIni=')
+	// );
 
 	// let promiseHorarios = await Promise.all(urlHorarios);
 	// let jsonHorarios = await Promise.all(promiseHorarios.map((p) => p.json()));
