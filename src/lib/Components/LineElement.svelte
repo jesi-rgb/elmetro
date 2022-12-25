@@ -7,7 +7,7 @@
 </script>
 
 <StopNumber orden={paradaInfo.parada.orden} />
-<div class=" rounded-sm px-4 pb-2 ml-6">
+<div class="pb-4 ml-7">
 	<div class="space-y-2">
 		<div
 			style="color: hsl({paradaInfo.parada.orden * 30} 80% 20%);"
