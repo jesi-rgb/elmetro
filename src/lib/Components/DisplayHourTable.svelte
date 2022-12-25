@@ -20,36 +20,27 @@
 </script>
 
 <div>
-	<div class="flex flex-row gap-8 items-start">
-		<div class="flex flex-col w-1/2 px-4 py-2 bg-violet-200 rounded-xl ring-1 ring-violet-600">
+	<div class="flex flex-row gap-6 items-start">
+		<div
+			class="flex flex-col w-1/2 px-4 py-2 text-violet-900 bg-violet-200 bg-opacity-60 rounded-sm ring-1 ring-violet-600"
+		>
 			<span class="flex items-center font-medium text-violet-900"
 				>Albolote <span class="text-violet-600"><ArrowUp /></span>
 			</span>
-			<MinutesLeft
-				minutesLeft={minsIda}
-				actualHour={paradaInfo.serviciosIda[0].servicio}
-				color={'violet'}
-			/>
-			<MinutesLeft
-				minutesLeft={minsIdaNext}
-				actualHour={paradaInfo.serviciosIda[1].servicio}
-				color={'violet'}
-			/>
+			<MinutesLeft minutesLeft={minsIda} actualHour={paradaInfo.serviciosIda[0].servicio} />
+			<MinutesLeft minutesLeft={minsIdaNext} actualHour={paradaInfo.serviciosIda[1].servicio} />
 		</div>
 
-		<div class="flex flex-col w-1/2 px-4 py-2 bg-orange-200 rounded-xl ring-1 ring-orange-600">
+		<div
+			class="flex flex-col w-1/2 px-4 py-2 bg-orange-200 rounded-sm ring-1 ring-orange-600 text-orange-900"
+		>
 			<span class="flex items-center font-medium text-orange-900"
 				>Armilla <span class="text-orange-600"><ArrowDown /></span>
 			</span>
-			<MinutesLeft
-				minutesLeft={minsVuelta}
-				actualHour={paradaInfo.serviciosVuelta[0].servicio}
-				color={'orange'}
-			/>
+			<MinutesLeft minutesLeft={minsVuelta} actualHour={paradaInfo.serviciosVuelta[0].servicio} />
 			<MinutesLeft
 				minutesLeft={minsVueltaNext}
 				actualHour={paradaInfo.serviciosVuelta[1].servicio}
-				color={'orange'}
 			/>
 		</div>
 	</div>
