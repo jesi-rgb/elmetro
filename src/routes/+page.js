@@ -52,7 +52,8 @@ async function fetchData(fetch) {
 			parada: parada,
 			nucleo: nucleo,
 			serviciosIda: serviciosIda,
-			serviciosVuelta: serviciosVuelta
+			serviciosVuelta: serviciosVuelta,
+			favourite: Math.random() < 0.1 ? true : false
 		};
 	});
 

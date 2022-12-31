@@ -5,12 +5,14 @@
 	import DisplayHourTable from './DisplayHourTable.svelte';
 	import StopNumber from './StopNumber.svelte';
 	export let paradaInfo;
+
+	let starStyle = paradaInfo.favourite ? 'fill' : 'bold';
 </script>
 
 <StopNumber orden={paradaInfo.parada.orden} />
 <div class="pb-4 ml-7">
 	<div class="space-y-2">
-		<div class="flex justify-between items-end">
+		<div class="flex justify-between items-baseline">
 			<div
 				style="color: hsl({paradaInfo.parada.orden * 30} 80% 20%);"
 				class="font-semibold text-2xl -mb-2"
@@ -18,7 +20,9 @@
 				{paradaInfo.parada.nombre}
 			</div>
 			<div style="color: hsl({paradaInfo.parada.orden * 30} 80% 40%);" class="text-right">
-				<Star weight={'bold'} />
+				<button>
+					<Star weight={starStyle} />
+				</button>
 			</div>
 		</div>
 		<div
