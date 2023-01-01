@@ -7,8 +7,6 @@
 
 	// export let value;
 	export let paradaInfo;
-
-	let starStyle = paradaInfo.favourite ? 'fill' : 'bold';
 </script>
 
 <div class="">
@@ -31,7 +29,7 @@
 					$favourites.favourites = $favourites.favourites;
 				}}
 			>
-				<Star weight={starStyle} />
+				<Star weight="fill" />
 			</button>
 		</div>
 		<DisplayHourFav {paradaInfo} />
