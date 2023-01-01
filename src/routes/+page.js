@@ -1,17 +1,17 @@
 import { paradas } from '../lib/data/paradas';
 import { nucleos } from '../lib/data/nucleos';
-// import { jsonHorarios } from '../lib/data/jsonHorarios';
+import { jsonHorarios } from '../lib/data/jsonHorarios';
 
 async function fetchData(fetch) {
 	let paradasUnicas = paradas.paradas.filter((p) => p.sentido == '1');
 	let idParadas = paradasUnicas.map((p) => p.idParada);
 
-	let urlHorarios = idParadas.map((p) =>
-		fetch('http://api.ctan.es/v1/Consorcios/3/paradas/' + p + '/servicios?horaIni=')
-	);
+	// let urlHorarios = idParadas.map((p) =>
+	// 	fetch('http://api.ctan.es/v1/Consorcios/3/paradas/' + p + '/servicios?horaIni=')
+	// );
 
-	let promiseHorarios = await Promise.all(urlHorarios);
-	let jsonHorarios = await Promise.all(promiseHorarios.map((p) => p.json()));
+	// let promiseHorarios = await Promise.all(urlHorarios);
+	// let jsonHorarios = await Promise.all(promiseHorarios.map((p) => p.json()));
 	// console.log(jsonHorarios);
 
 	// todos los servicios que cada parada tiene

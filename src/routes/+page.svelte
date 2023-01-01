@@ -1,6 +1,7 @@
 <script>
 	import FavLineElement from '../lib/Components/FavLineElement.svelte';
 	import LineElement from '../lib/Components/LineElement.svelte';
+	import { favourites } from '../stores';
 
 	import { cubicOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
@@ -27,9 +28,6 @@
 
 	export let data;
 	let paradasInfo = data.paradasInfo;
-	$: console.log(paradasInfo);
-
-	console.log(localStorage);
 </script>
 
 <div class="my-10">
@@ -52,31 +50,31 @@
 </div>
 <div class="">
 	<div class="font-light text-xl relative space-y-4">
-		{#each paradasInfo.filter((p) => p.favourite) as paradaInfo, i (paradaInfo.parada.orden)}
+		{#each paradasInfo.filter( (p) => $favourites.favourites.includes(p.parada.orden) ) as paradaInfo, i (paradaInfo.parada.orden)}
 			<div
 				in:receive={{ key: paradaInfo.parada.orden }}
 				out:send={{ key: paradaInfo.parada.orden }}
 				animate:flip={{ duration: 100 }}
 			>
-				<FavLineElement bind:value={paradasInfo} {paradaInfo} />
+				<FavLineElement {paradaInfo} />
 			</div>
 		{/each}
 	</div>
 </div>
-<!-- all the lines  -->
 
 <div class="my-20">
 	<hr />
 </div>
 
+<!-- rest of the lines  -->
 <div class="font-light text-xl relative border-l-4 border-dotted border-neutral-300 space-y-7">
-	{#each paradasInfo.filter((p) => !p.favourite) as paradaInfo, i (paradaInfo.parada.orden)}
+	{#each paradasInfo.filter((p) => !$favourites.favourites.includes(p.parada.orden)) as paradaInfo, i (paradaInfo.parada.orden)}
 		<div
 			in:receive={{ key: paradaInfo.parada.orden }}
 			out:send={{ key: paradaInfo.parada.orden }}
 			animate:flip={{ duration: 100 }}
 		>
-			<LineElement bind:value={paradasInfo} {paradaInfo} />
+			<LineElement {paradaInfo} />
 		</div>
 	{/each}
 </div>

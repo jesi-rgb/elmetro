@@ -4,10 +4,9 @@
 	import { Star } from 'phosphor-svelte';
 	import DisplayHourTable from './DisplayHourTable.svelte';
 	import StopNumber from './StopNumber.svelte';
+	import { favourites } from '../../stores';
 
-	export let value;
 	export let paradaInfo;
-	// export let i;
 
 	let starStyle = paradaInfo.favourite ? 'fill' : 'bold';
 </script>
@@ -25,9 +24,7 @@
 			<div style="color: hsl({paradaInfo.parada.orden * 30} 80% 40%);" class="text-right">
 				<button
 					on:click={() => {
-						let fav = value.find((p) => p.parada.orden == paradaInfo.parada.orden);
-						fav.favourite = !fav.favourite;
-						value = value;
+						$favourites.favourites = [...$favourites.favourites, paradaInfo.parada.orden];
 					}}
 				>
 					<Star weight={starStyle} />
