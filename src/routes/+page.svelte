@@ -4,7 +4,8 @@
 	import LineElement from '../lib/Components/LineElement.svelte';
 
 	export let data;
-	$: paradasInfo = data.paradasInfo;
+	let paradasInfo = data.paradasInfo;
+	$: console.log(paradasInfo);
 </script>
 
 <div class="my-10">
@@ -18,8 +19,8 @@
 </div>
 <div class="">
 	<div class="font-light text-xl relative space-y-4">
-		{#each paradasInfo.filter((p) => p.favourite) as paradaInfo (paradaInfo.parada.orden)}
-			<FavLineElement {paradaInfo} />
+		{#each paradasInfo.filter((p) => p.favourite) as paradaInfo, i (paradaInfo.parada.orden)}
+			<FavLineElement bind:value={paradasInfo} {paradaInfo} />
 		{/each}
 	</div>
 </div>
@@ -30,7 +31,7 @@
 </div>
 
 <div class="font-light text-xl relative border-l-4 border-dotted border-neutral-300 space-y-7">
-	{#each paradasInfo.filter((p) => !p.favourite) as paradaInfo (paradaInfo.parada.orden)}
-		<LineElement {paradaInfo} />
+	{#each paradasInfo.filter((p) => !p.favourite) as paradaInfo, i (paradaInfo.parada.orden)}
+		<LineElement bind:value={paradasInfo} {paradaInfo} />
 	{/each}
 </div>

@@ -53,7 +53,7 @@ async function fetchData(fetch) {
 			nucleo: nucleo,
 			serviciosIda: serviciosIda,
 			serviciosVuelta: serviciosVuelta,
-			favourite: Math.random() < 0.1 ? true : false
+			favourite: false
 		};
 	});
 
