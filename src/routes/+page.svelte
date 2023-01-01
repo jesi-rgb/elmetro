@@ -62,7 +62,7 @@
 	</div>
 </div>
 
-<div class="my-20">
+<div class="my-10 xl:my-20">
 	<hr />
 </div>
 
