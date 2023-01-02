@@ -5,33 +5,42 @@
 	import DisplayHourFav from './DisplayHourFav.svelte';
 	import { favourites } from '../../stores';
 
-	// export let value;
 	export let paradaInfo;
+
+	let idParada = paradaInfo.idParada;
+
+	let promiseStop = fetch(
+		'http://api.ctan.es/v1/Consorcios/3/paradas/' + idParada + '/servicios?horaIni='
+	).then((response) => response.json());
 </script>
 
-<div class="">
-	<div class="space-y-1">
-		<div class="flex justify-between items-center">
-			<div class="flex items-baseline space-x-2">
-				<div class="font-semibold text-purple-800 font-mono">
-					{paradaInfo.parada.orden}
+{#await promiseStop}
+	<p>loading...</p>
+{:then paradaInfo}
+	<div class="">
+		<div class="space-y-1">
+			<div class="flex justify-between items-center">
+				<div class="flex items-baseline space-x-2">
+					<div class="font-semibold text-purple-800 font-mono">
+						{paradaInfo.orden}
+					</div>
+					<span class="w-1 h-1 self-center bg-purple-400 rounded-full" />
+					<div class="font-semibold text-2xl text-purple-900">
+						{paradaInfo.nombre}
+					</div>
 				</div>
-				<span class="w-1 h-1 self-center bg-purple-400 rounded-full" />
-				<div class="font-semibold text-2xl text-purple-900">
-					{paradaInfo.parada.nombre}
-				</div>
+				<button
+					class="text-blue-900"
+					on:click={() => {
+						let i = $favourites.favourites.findIndex((v) => v == paradaInfo.orden);
+						$favourites.favourites.splice(i, 1);
+						$favourites.favourites = $favourites.favourites;
+					}}
+				>
+					<Star weight="fill" />
+				</button>
 			</div>
-			<button
-				class="text-blue-900"
-				on:click={() => {
-					let i = $favourites.favourites.findIndex((v) => v == paradaInfo.parada.orden);
-					$favourites.favourites.splice(i, 1);
-					$favourites.favourites = $favourites.favourites;
-				}}
-			>
-				<Star weight="fill" />
-			</button>
+			<DisplayHourFav {paradaInfo} />
 		</div>
-		<DisplayHourFav {paradaInfo} />
 	</div>
-</div>
+{/await}
