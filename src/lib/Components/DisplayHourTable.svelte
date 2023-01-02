@@ -4,6 +4,7 @@
 
 	import MinutesLeft from './MinutesLeft.svelte';
 	export let paradaInfo;
+	console.log(paradaInfo);
 
 	let minsIda = new Date(
 		dateFromHour(paradaInfo.serviciosIda[0].servicio) - new Date()
