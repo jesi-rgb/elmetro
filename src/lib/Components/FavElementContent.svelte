@@ -10,7 +10,13 @@
 	import DisplayHourFav from './DisplayHourFav.svelte';
 </script>
 
-<div class="">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div
+	on:click={() => {
+		value = fetchStop();
+	}}
+	class="cursor-pointer hover:bg-blue-100 px-3 py-2 rounded-md"
+>
 	<div class="space-y-1">
 		<div class="flex justify-between items-center">
 			<div class="flex items-baseline space-x-2">

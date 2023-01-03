@@ -9,7 +9,7 @@
 	import DisplayHourTableLoading from './DisplayHourTableLoading.svelte';
 </script>
 
-<div>
+<div class="px-3 py-2">
 	<div class="space-y-1">
 		<div class="flex justify-between items-center">
 			<div class="flex items-baseline space-x-2">
@@ -25,7 +25,7 @@
 					{paradaInfo.orden}
 				</div>
 				<span class="w-1 h-1 self-center bg-purple-400 rounded-full" />
-				<div class="font-semibold text-2xl text-purple-900">
+				<div class="font-semibold text-xl text-purple-900">
 					{paradaInfo.nombre}
 				</div>
 			</div>
@@ -39,6 +39,9 @@
 			>
 				<Star weight="fill" />
 			</button>
+		</div>
+		<div class="text-sm flex space-x-1">
+			<div class="font-regular">actualizado a las: ...</div>
 		</div>
 		<DisplayHourTableLoading />
 	</div>

@@ -36,7 +36,7 @@
 </div> -->
 
 <div class="mb-2">
-	<img src={elmetro} width="310px" alt="elmetro logo" />
+	<img src={elmetro} width="290px" alt="elmetro logo" />
 </div>
 
 <div class="flex items-baseline">
