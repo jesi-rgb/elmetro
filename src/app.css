@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
+@font-face {
+	font-family: 'Pally-Variable';
+	src: url('../fonts/Pally-Variable.woff2') format('woff2'),
+		url('../fonts/Pally-Variable.woff') format('woff'),
+		url('../fonts/Pally-Variable.ttf') format('truetype');
+	font-weight: 400 700;
+	font-display: swap;
+	font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

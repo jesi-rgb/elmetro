@@ -3,7 +3,7 @@
 </script>
 
 <div class="text-teal-800 space-y-2 transition-opacity mt-20 border-t border-teal-800">
-	<div class="opacity-60 hover:opacity-100">
+	<div class="opacity-60 font-pally font-bold tracking-wider text-xl hover:opacity-100">
 		<a href="/">elmetro</a>
 	</div>
 	<a href="https://jesirgb.com" class="opacity-60 flex items-center hover:opacity-100">

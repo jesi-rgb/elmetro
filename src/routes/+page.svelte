@@ -31,7 +31,7 @@
 </script>
 
 <div class="my-10">
-	<div class="text-6xl font-semibold tracking-tight text-blue-900">elmetro</div>
+	<div class="text-6xl font-semibold tracking-wider font-pally text-blue-900">elmetro</div>
 </div>
 
 <div class="flex items-baseline">
@@ -39,7 +39,7 @@
 </div>
 
 <!-- fav lines  -->
-<div class="text-2xl font-semibold text-blue-900 flex items-center mb-3">
+<div class="text-2xl font-semibold font-pally tracking-wider text-blue-900 flex items-center mb-3">
 	<span class="text-2xl mr-2">⭐</span>Favs
 </div>
 

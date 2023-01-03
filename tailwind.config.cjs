@@ -5,6 +5,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				serif: ['Source Serif Pro'],
+				pally: ['Pally Variable'],
 				mono: ['IBM Plex Mono']
 			}
 		}

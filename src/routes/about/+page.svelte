@@ -3,7 +3,7 @@
 </script>
 
 <main>
-	<div class="text-3xl text-blue-800 font-semibold">qué es esto??</div>
+	<div class="text-3xl text-blue-800 font-pally font-semibold">qué es esto??</div>
 
 	<div class="space-y-4 mt-6 text-justify">
 		<p>
