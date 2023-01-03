@@ -44,7 +44,7 @@
 </div>
 
 <!-- fav lines  -->
-<div class="text-2xl font-semibold font-pally tracking-wider text-blue-900 flex items-center mb-3">
+<div class="text-3xl font-semibold font-pally  text-blue-900 flex items-center mb-3">
 	<span class="text-2xl mr-2">⭐</span>Favs
 </div>
 
