@@ -12,7 +12,7 @@
 
 	async function fetchStop() {
 		return await fetch(
-			'http://api.ctan.es/v1/Consorcios/3/paradas/' + idParada + '/servicios?horaIni='
+			'https://api.ctan.es/v1/Consorcios/3/paradas/' + idParada + '/servicios?horaIni='
 		).then((response) => response.json());
 	}
 	let servicePromise = fetchStop();
