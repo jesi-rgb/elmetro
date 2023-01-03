@@ -9,7 +9,8 @@
 
 	import { paradas } from '../lib/data/paradas';
 	import LastUpdated from '../lib/Components/LastUpdated.svelte';
-	import { ArrowClockwise } from 'phosphor-svelte';
+
+	import elmetro from '../lib/assets/elmetro.svg';
 
 	const [send, receive] = crossfade({
 		duration: (d) => Math.sqrt(d * 200),
@@ -30,8 +31,12 @@
 	});
 </script>
 
-<div class="my-10">
+<!-- <div class="my-10">
 	<div class="text-6xl font-semibold tracking-wider font-pally text-blue-900">elmetro</div>
+</div> -->
+
+<div class="mb-2">
+	<img src={elmetro} width="310px" alt="elmetro logo" />
 </div>
 
 <div class="flex items-baseline">
