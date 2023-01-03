@@ -1,5 +1,8 @@
 # elmetro de granada
 
+![tg_image_2216179009](https://user-images.githubusercontent.com/50735312/210409501-b1ae2253-93bc-4626-b885-acf475003289.jpeg)
+
+
 elmetro es una aplicación web que recoge los datos del consorcio de transportes relativos al metro de granada y te los pone en bandeja.
 
 la idea viene principalmente de la inconveniencia de tener que meterme en alguna app como Google Maps para poder comprobar cuándo sale el siguiente metro.
