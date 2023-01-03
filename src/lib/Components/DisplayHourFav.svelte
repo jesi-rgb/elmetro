@@ -7,10 +7,10 @@
 
 	let minsIda = new Date(dateFromHour(serviceInfo.servicios[0].servicio) - new Date()).getMinutes();
 	let minsVuelta = new Date(
-		dateFromHour(serviceInfo.servicios[2].servicio) - new Date()
+		dateFromHour(serviceInfo.servicios[1].servicio) - new Date()
 	).getMinutes();
 	let minsIdaNext = new Date(
-		dateFromHour(serviceInfo.servicios[1].servicio) - new Date()
+		dateFromHour(serviceInfo.servicios[2].servicio) - new Date()
 	).getMinutes();
 	let minsVueltaNext = new Date(
 		dateFromHour(serviceInfo.servicios[3].servicio) - new Date()
