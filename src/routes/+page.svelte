@@ -31,7 +31,7 @@
 </script>
 
 <div class="my-10">
-	<div class="text-6xl font-semibold tracking-tight text-blue-900">ELMETRO©</div>
+	<div class="text-6xl font-semibold tracking-tight text-blue-900">elmetro</div>
 </div>
 
 <div class="flex items-baseline">
