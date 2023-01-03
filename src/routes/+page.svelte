@@ -36,12 +36,6 @@
 
 <div class="flex items-baseline">
 	<LastUpdated />
-	<button
-		class="text-xl text-blue-800"
-		on:click={() => {
-			window.location.reload();
-		}}><ArrowClockwise weight="bold" /></button
-	>
 </div>
 
 <!-- fav lines  -->

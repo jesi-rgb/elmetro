@@ -1,11 +1,10 @@
 <script>
 	//this component displays a single tram stop as a timeline
 
-	import { DiscordLogo, Star } from 'phosphor-svelte';
+	import { Star } from 'phosphor-svelte';
 	import DisplayHourTable from './DisplayHourTable.svelte';
 	import StopNumber from './StopNumber.svelte';
 	import { favourites } from '../../stores';
-	import { jsonHorarios } from '../data/jsonHorarios';
 	import DisplayHourTableLoading from './DisplayHourTableLoading.svelte';
 
 	export let paradaInfo;
@@ -30,7 +29,7 @@
 			<div class="space-y-2">
 				<div class="flex justify-between items-center">
 					<div
-						style="color: hsl({paradaInfo.orden * 30} 80% 20%);"
+						style="color: hsl({paradaInfo.orden * 70} 80% 20%);"
 						class="font-semibold text-2xl -mb-2"
 					>
 						{paradaInfo.nombre}
@@ -62,12 +61,12 @@
 			<div class="space-y-2">
 				<div class="flex justify-between items-baseline">
 					<div
-						style="color: hsl({paradaInfo.orden * 30} 80% 20%);"
+						style="color: hsl({paradaInfo.orden * 70} 80% 20%);"
 						class="font-semibold text-2xl -mb-2"
 					>
 						{paradaInfo.nombre}
 					</div>
-					<div style="color: hsl({paradaInfo.orden * 30} 80% 40%);" class="text-right">
+					<div style="color: hsl({paradaInfo.orden * 70} 80% 40%);" class="text-right">
 						<button
 							on:click={() => {
 								$favourites.favourites = [...$favourites.favourites, paradaInfo.orden];
