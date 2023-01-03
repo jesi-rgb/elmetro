@@ -1,38 +1,11 @@
-# create-svelte
+# elmetro de granada
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+elmetro es una aplicación web que recoge los datos del consorcio de transportes relativos al metro de granada y te los pone en bandeja.
 
-## Creating a project
+la idea viene principalmente de la inconveniencia de tener que meterme en alguna app como Google Maps para poder comprobar cuándo sale el siguiente metro.
 
-If you're seeing this, you've probably already done this step. Congrats!
+al igual que yo, muchas otras personas no son precisamente fans de descargarse más apps en su teléfono, ya sea por pereza o por tener el teléfono lleno de fotos que realmente deberíamos borrar, pero que, por alguna razón, decidimos conservar.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+es por eso que he creado esta pequeña web. no necesita descargas, siempre está actualizada, es fácil de mantener y cómoda de usar. o, al menos, eso espero <3
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+si necesitas cualquier cosa, mi página web está ahí abajo. pásate, echas un ojo y me cuentas qué tal te va. gracias!
