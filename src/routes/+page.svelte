@@ -9,6 +9,7 @@
 
 	import { paradas } from '../lib/data/paradas';
 	import LastUpdated from '../lib/Components/LastUpdated.svelte';
+	import { ArrowClockwise } from 'phosphor-svelte';
 
 	const [send, receive] = crossfade({
 		duration: (d) => Math.sqrt(d * 200),
@@ -27,15 +28,21 @@
 			};
 		}
 	});
-
-	// console.log($favourites.favourites.includes(2));
 </script>
 
 <div class="my-10">
 	<div class="text-6xl font-semibold tracking-tight text-blue-900">ELMETRO©</div>
 </div>
 
-<LastUpdated />
+<div class="flex items-baseline">
+	<LastUpdated />
+	<button
+		class="text-xl text-blue-800"
+		on:click={() => {
+			window.location.reload();
+		}}><ArrowClockwise weight="bold" /></button
+	>
+</div>
 
 <!-- fav lines  -->
 <div class="text-2xl font-semibold text-blue-900 flex items-center mb-3">
