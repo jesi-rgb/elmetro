@@ -13,7 +13,7 @@
 	import elmetro from '../lib/assets/elmetro.svg';
 
 	const [send, receive] = crossfade({
-		duration: (d) => Math.sqrt(d * 200),
+		duration: (d) => Math.sqrt(d * 300),
 
 		fallback(node, params) {
 			const style = getComputedStyle(node);
@@ -31,10 +31,6 @@
 	});
 </script>
 
-<!-- <div class="my-10">
-	<div class="text-6xl font-semibold tracking-wider font-pally text-blue-900">elmetro</div>
-</div> -->
-
 <div class="mb-2">
 	<img src={elmetro} width="290px" alt="elmetro logo" />
 </div>
@@ -48,18 +44,16 @@
 	<span class="text-2xl mr-2">⭐</span>Favs
 </div>
 
-<div class="">
-	<div class="font-light text-xl relative space-y-4">
-		{#each paradas.filter( (p) => $favourites.favourites.includes(p.orden) ) as paradaInfo (paradaInfo.orden)}
-			<div
-				in:receive={{ key: paradaInfo.orden }}
-				out:send={{ key: paradaInfo.orden }}
-				animate:flip={{ duration: 100 }}
-			>
-				<FavLineElement {paradaInfo} />
-			</div>
-		{/each}
-	</div>
+<div class="font-light text-xl relative space-y-4">
+	{#each paradas.filter( (p) => $favourites.favourites.includes(p.orden) ) as paradaInfo (paradaInfo.orden)}
+		<div
+			in:receive={{ key: paradaInfo.orden }}
+			out:send={{ key: paradaInfo.orden }}
+			animate:flip={{ duration: 600 }}
+		>
+			<FavLineElement {paradaInfo} />
+		</div>
+	{/each}
 </div>
 
 <div class="my-10 xl:my-20">
@@ -72,7 +66,7 @@
 		<div
 			in:receive={{ key: paradaInfo.orden }}
 			out:send={{ key: paradaInfo.orden }}
-			animate:flip={{ duration: 100 }}
+			animate:flip={{ duration: 600 }}
 		>
 			<LineElement {paradaInfo} />
 		</div>
