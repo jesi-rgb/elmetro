@@ -6,6 +6,7 @@
 	import StopNumber from './StopNumber.svelte';
 	import { favourites } from '../../stores';
 	import DisplayHourTableLoading from './DisplayHourTableLoading.svelte';
+	import sleepy from '../assets/elmetro-sleepy.svg';
 
 	export let paradaInfo;
 
@@ -55,30 +56,62 @@
 		</div>
 	</div>
 {:then serviceInfo}
-	<div>
-		<StopNumber orden={paradaInfo.orden} />
-		<div class="pb-4 ml-7">
-			<div class="space-y-2">
-				<div class="flex justify-between items-baseline">
-					<div
-						style="color: hsl({paradaInfo.orden * 70} 80% 20%);"
-						class="font-semibold text-2xl -mb-2"
-					>
-						{paradaInfo.nombre}
-					</div>
-					<div style="color: hsl({paradaInfo.orden * 70} 80% 40%);" class="text-right">
-						<button
-							on:click={() => {
-								$favourites.favourites = [...$favourites.favourites, paradaInfo.orden];
-							}}
+	{#if serviceInfo.servicios.length > 0}
+		<div>
+			<StopNumber orden={paradaInfo.orden} />
+			<div class="pb-4 ml-7">
+				<div class="space-y-2">
+					<div class="flex justify-between items-baseline">
+						<div
+							style="color: hsl({paradaInfo.orden * 70} 80% 20%);"
+							class="font-semibold text-2xl -mb-2"
 						>
-							<Star weight="bold" />
-						</button>
+							{paradaInfo.nombre}
+						</div>
+						<div style="color: hsl({paradaInfo.orden * 70} 80% 40%);" class="text-right">
+							<button
+								on:click={() => {
+									$favourites.favourites = [...$favourites.favourites, paradaInfo.orden];
+								}}
+							>
+								<Star weight="bold" />
+							</button>
+						</div>
 					</div>
-				</div>
 
-				<DisplayHourTable {serviceInfo} />
+					<DisplayHourTable {serviceInfo} />
+				</div>
 			</div>
 		</div>
-	</div>
+	{:else}
+		<div>
+			<StopNumber orden={paradaInfo.orden} />
+			<div class="pb-4 ml-7">
+				<div class="space-y-2">
+					<div class="flex justify-between items-baseline">
+						<div
+							style="color: hsl({paradaInfo.orden * 70} 80% 20%);"
+							class="font-semibold text-2xl -mb-2"
+						>
+							{paradaInfo.nombre}
+						</div>
+						<div style="color: hsl({paradaInfo.orden * 70} 80% 40%);" class="text-right">
+							<button
+								on:click={() => {
+									$favourites.favourites = [...$favourites.favourites, paradaInfo.orden];
+								}}
+							>
+								<Star weight="bold" />
+							</button>
+						</div>
+					</div>
+
+					<div class="flex space-x-3 items-baseline">
+						<p class="text-lg">no hay más servicios por hoy</p>
+						<img src={sleepy} width="30px" alt="elmetro durmiendo" />
+					</div>
+				</div>
+			</div>
+		</div>
+	{/if}
 {/await}

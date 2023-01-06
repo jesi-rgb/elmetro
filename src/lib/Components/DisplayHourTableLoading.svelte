@@ -1,10 +1,3 @@
-<script>
-	import { ArrowUp, ArrowDown } from 'phosphor-svelte';
-	import { dateFromHour } from '../utils';
-
-	import MinutesLeft from './MinutesLeft.svelte';
-</script>
-
 <div>
 	<div class="flex flex-row gap-4 items-start">
 		<div
