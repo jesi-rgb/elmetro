@@ -7,6 +7,7 @@
 	import { favourites } from '../../stores';
 	import DisplayHourTableLoading from './DisplayHourTableLoading.svelte';
 	import sleepy from '../assets/elmetro-sleepy.svg';
+	import SleepyMetro from './SleepyMetro.svelte';
 
 	export let paradaInfo;
 
@@ -106,10 +107,7 @@
 						</div>
 					</div>
 
-					<div class="flex space-x-3 items-baseline">
-						<p class="text-lg">no hay más servicios por hoy</p>
-						<img src={sleepy} width="30px" alt="elmetro durmiendo" />
-					</div>
+					<SleepyMetro />
 				</div>
 			</div>
 		</div>

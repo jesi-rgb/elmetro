@@ -4,7 +4,6 @@
 	import { paradas } from '../data/paradas';
 	import BackButton from './BackButton.svelte';
 
-	console.log(paradas);
 	let mapComponent;
 
 	function onReady() {
@@ -31,9 +30,8 @@
 		on:ready={onReady}
 	>
 		{#each paradas as parada}
-			<Marker lat={parada.latitud} lng={parada.longitud} label={parada.orden}>
-				<!-- <img src={sleepy} width="40px" alt="elmetro durmiendo" /> -->
-				<svg width="100%" height="100%">
+			<Marker lat={parada.latitud} lng={parada.longitud} label={parada.orden} popup={false}>
+				<svg width="700px" height="100%">
 					<defs>
 						<text
 							id={'tag' + parada.orden}
@@ -42,7 +40,8 @@
 							dx="6"
 							stroke="#FEFEFE"
 							stroke-width="4"
-							class="font-semibold font-serif fill-blue-900">{parada.orden} · {parada.nombre}</text
+							font-size="19px"
+							class="font-semibold font-serif fill-blue-900 ">{parada.orden} · {parada.nombre}</text
 						>
 
 						<mask id="outerStroke">
@@ -65,7 +64,9 @@
 						x="50%"
 						y="50%"
 						dx="6"
-						class="font-bold font-serif fill-blue-900">{parada.orden} · {parada.nombre}</text
+						font-size="19px"
+						class="font-bold font-serif fill-blue-900 hover:fill-teal-600 transition-colors"
+						>{parada.orden} · {parada.nombre}</text
 					>
 				</svg>
 			</Marker>
