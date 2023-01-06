@@ -22,7 +22,7 @@
 	<div
 		class="flex space-x-2 items-center text-teal-800 opacity-60 hover:opacity-100 transition-opacity"
 	>
-		<Info weight="bold" />
+		<Info weight="regular" />
 		<a class="" href="/about">Más información</a>
 	</div>
 
